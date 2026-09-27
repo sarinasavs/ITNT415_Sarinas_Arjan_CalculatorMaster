@@ -27,7 +27,13 @@ def subtract(a, b):
 def multiply(a, b):
     """Return the product of a and b."""
     return a * b
-    
+
+def divide(a, b):
+    """Return the quotient of a and b. Raises ZeroDivisionError if b is 0."""
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero.")
+    return a / b
+
 def main():
     while True:
         print_menu()
@@ -50,6 +56,15 @@ def main():
             num2 = get_number("Enter the second number: ")
             result = multiply(num1, num2)
             print(f"Result: {num1} * {num2} = {result}")
+        if choice == "4":
+            num1 = get_number("Enter the first number: ")
+            num2 = get_number("Enter the second number: ")
+            try:
+                result = divide(num1, num2)
+                print(f"Result: {num1} / {num2} = {result}")
+            except ZeroDivisionError as e:
+                print(f"Error: {e}")
+
         if choice not in {"1", "2", "3", "4"}:
             print("Invalid option. Please choose a number between 1 and 5.")
             continue
