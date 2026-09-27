@@ -23,15 +23,20 @@ def add(a, b):
     return a + b
 
 
+def subtract(a, b):
+    """Return the difference of a and b."""
+    return a - b
+
+
 def main():
     while True:
         print_menu()
         choice = input("Select an option (1-5): ").strip()
-        
+
         if choice == "5":
             print("Exiting Calculator Master. Goodbye!")
             break
-            
+
         if choice == "1":
             num1 = get_number("Enter the first number: ")
             num2 = get_number("Enter the second number: ")
@@ -39,10 +44,17 @@ def main():
             print(f"Result: {num1} + {num2} = {result}")
             continue
 
+        if choice == "2":
+            num1 = get_number("Enter the first number: ")
+            num2 = get_number("Enter the second number: ")
+            result = subtract(num1, num2)
+            print(f"Result: {num1} - {num2} = {result}")
+            continue
+
         if choice not in {"1", "2", "3", "4"}:
             print("Invalid option. Please choose a number between 1 and 5.")
             continue
-            
+
         # Operations will be implemented on their own branches
         print("This operation is not implemented yet.")
 
